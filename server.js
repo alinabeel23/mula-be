@@ -1,11 +1,14 @@
 // Dependencies
 const express = require("express")
+const cors = require('cors')
 const mongoose = require("mongoose")
 
 
 
 // Initailze Express
 const app = express();
+
+app.use(cors())
 
 
 
