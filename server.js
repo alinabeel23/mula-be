@@ -3,8 +3,10 @@ const express = require("express")
 const mongoose = require("mongoose")
 
 
+
 // Initailze Express
 const app = express();
+
 
 
 // Require and initialze dotenv
@@ -41,17 +43,22 @@ app.use(function(req, res, next){
 mongoose.set('strictQuery', false);
 // MongoDB Connection
 try {
+    // console.log(process.env.mongoDBURL)
     mongoose.connect(process.env.mongoDBURL, {useNewUrlParser: true, useUnifiedTopology: true});
     console.log("MongoDB Connected Successfully");
 } catch (error) {
     console.log("MongoDB Connection Error: ", error);
 }
 
+
+
 // Import Routes
 const authRoute = require('./routes/auth');
 
 // Mount Routes
 app.use('/', authRoute);
+
+
 
 // Listen to specific port for incomming requests
 app.listen(port, () => {
