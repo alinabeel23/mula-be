@@ -6,7 +6,7 @@ const userSchema = mongoose.Schema({
     firstName: {
         type: String,
         required: true,
-        minlength: [3, "First name must be more than 3 characters"],
+        minlength: [, "First name must be more than 3 characters"],
         maxlength: [99, "This is too much man..... Chill!!!"]
     },
     lastName: {
@@ -21,10 +21,18 @@ const userSchema = mongoose.Schema({
         lowercase:true,
         unique: true
     },
+    phoneNum:{
+        type: String,
+        required: true,
+        minlength: [8]
+    },
     password:{
         type: String,
         required: true,
         minlength: [6, "khalaas... your password is too weak"]
+    },
+    pfp: {
+        type: Buffer
     }
 
 },
