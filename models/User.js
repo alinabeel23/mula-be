@@ -50,5 +50,6 @@ userSchema.methods.verifyPassword = function(password){
 // User Model
 const User = mongoose.model("User", userSchema);
 
+
 // Exports
 module.exports = User;

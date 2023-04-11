@@ -6,6 +6,7 @@ const jwt = require("jsonwebtoken");
 
 // Require bcrypt
 const bcrypt = require("bcrypt");
+const { application } = require("express");
 const salt = 10;
 
 // Require Passport Configurations
@@ -110,3 +111,25 @@ exports.auth_logout_get = (req, res) => {
     res.redirect("/auth/signin");
   });
 };
+
+
+// forgot password
+// exports.authCntrl.auth_forgot_pw = async (req, res) => {
+//   const {emailAddress} = req.body
+//   try {
+//     let user = await User.findOne({ emailAddress });
+//     console.log(user);
+//     if (!user) {
+//       return res.json({ message: "User Not Found" });
+//     }
+//     const secret = JWT_TOKEN = user.password
+//     const token = jwt.sign({email: user.emailAddress, id: user._id }, secret,)
+//     const link = `http://localhost:4000/reset-password/${user._id}/${token}`
+//     console.log(link);
+//   } catch (error) {
+//   }
+// }
+
+// exports.authCntrl.auth_reset_password = async (req, res) => {
+//   const {id, token} = req.params
+// }

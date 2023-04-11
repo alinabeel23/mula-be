@@ -57,9 +57,13 @@ try {
 
 // Import Routes
 const authRoute = require('./routes/auth');
+const imageRoute = require('./routes/image');
+
 
 // Mount Routes
 app.use('/', authRoute);
+app.use('/', imageRoute);
+
 
 
 
