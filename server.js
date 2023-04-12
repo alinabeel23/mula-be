@@ -3,6 +3,7 @@ const express = require("express")
 const cors = require('cors')
 const mongoose = require("mongoose")
 
+const path = require('path')
 
 
 // Initailze Express
@@ -19,8 +20,9 @@ require('dotenv').config();
 const port = process.env.PORT;
 
 // Look for all the static files in public folder (css, JS, Images, Audio, Videos).
-app.use(express.static("public"));
-
+const buildPath = path.join(__dirname, 'build')
+app.use(express.static(buildPath))
+app.use(express.json())
 
 // Express Session and Passport
 let session = require('express-session');
@@ -64,6 +66,9 @@ const imageRoute = require('./routes/image');
 app.use('/', authRoute);
 app.use('/', imageRoute);
 
+app.get('/*', function(req, res) {
+    res.sendFile(path.join(__dirname, 'build', 'index.html'));
+    });
 
 
 

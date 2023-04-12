@@ -9,6 +9,8 @@ const bcrypt = require("bcrypt");
 const { application } = require("express");
 const salt = 10;
 
+
+
 // Require Passport Configurations
 // let passport = require("../helper/ppConfig");
 
