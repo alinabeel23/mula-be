@@ -32,7 +32,7 @@ const userSchema = mongoose.Schema({
         minlength: [6, "khalaas... your password is too weak"]
     },
     pfp: {
-        type: Buffer
+        type: String
     }
 
 },

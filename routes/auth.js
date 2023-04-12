@@ -15,8 +15,9 @@ router.post('/auth/signin', authCntrl.auth_signin_post);
 
 router.get("/auth/logout", authCntrl.auth_logout_get);
 
-// router.post("/auth/forgotpassword", authCntrl.auth_forgot_pw)
-// router.get("/reset-password", authCntrl.auth_reset_password)
+router.delete("/profile/delete", authCntrl.user_delete_get);
+
+
 
 // Exports
 module.exports = router;

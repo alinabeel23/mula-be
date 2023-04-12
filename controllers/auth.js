@@ -78,11 +78,13 @@ exports.auth_signin_post = async (req, res) => {
     }
 
     // Generate JWT
-
     const payload = {
       user: {
         id: user._id,
-        name: user.firstName
+        firstName: user.firstName,
+        lastName: user.lastName,
+        phoneNum: user.phoneNum,
+        email: user.emailAddress
       },
     };
 
@@ -111,6 +113,18 @@ exports.auth_logout_get = (req, res) => {
     res.redirect("/auth/signin");
   });
 };
+
+
+  exports.user_delete_get = (req, res) => {
+    console.log(req.query.id);
+    User.findByIdAndDelete(req.query.id)
+    .then((user)=>{
+        res.json({user})
+    })
+    .catch(err => {
+        console.log(err);
+    })
+  }
 
 
 // forgot password
